@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Code Quiz</title>
+    <link rel="stylesheet" href="./assets/style.css" />
+  </head>
+
+  <body>
+    <header>
+        
+
+
+    </header>
+
+
+    <main>
+        
+            
+        
+        <article class="container">
+            <div id="to-score-link">
+                <a id="scores" href="#">View High Score</a>
+                <p id="timer">Time: </p>
+            </div>
+            
+            <article class="container-start">
+
+                <div id="start-link">
+                    <div id="quiz-description">
+                        <h1>Coding Quiz!</h1>
+                        <p>Lets take a coding quiz! It's timed and each wrong answer will cost you even more time. You got this! </p>
+                    </div>    
+                    <div id="#start-link">
+                        <button id="start-button">Start Quiz</button>
+                    </form> 
+                 </div>
+                
+             </article>
+
+
+             <article class="container-quiz-nonVis">
+                <h2 id="question" data-question ="first question" data-questionNum = "1"></h1>
+        
+                    <div class="answers">
+                        <button id="answer-1" data-answer1 = "first answer" data-answerNum ="1" data-rightwrong1 =""></button>
+                        <button id="answer-2" data-answer2 = "first answer" data-answerNum ="1" data-rightwrong2 =""></button>
+                        <button id="answer-3" data-answer3 = "first answer" data-answerNum ="1" data-rightwrong3 =""></button>
+                        <button id="answer-4" data-answer4 = "first answer" data-answerNum ="1" data-rightwrong4 =""></button>
+                    </div>
+                
+             </article>
+
+             <article class="score-nonVis">
+                <div id="yourScore">
+                    <!-- I think this can be better -->
+                    <!-- <h3 id="userScore" data-scorePrompt = "Your Score is " data-userScore =""></h3> -->
+                    <h3>Your score!</h3>
+                </div>
+                
+                <form>
+                    <label for="initials">Enter your initials: </label><br>
+                    <input type="text" id="initials" name="initials"><br>
+                    <button id="to-scoreBoard">High Scores</button>
+                </form>
+                
+
+             </article>
+
+
+             <article class="container-highScores-nonVis">
+                <h3 id="highScore-link">High scores!</h3>
+                <ol id="list-link">
+                    <!-- i'll either make this from the javascript or edit it from html -->
+                    
+                </ol>
+                <button id="to-start">Start again</button>
+             </article>
+
+
+        </article>
+
+
+
+
+    </main>
+
+
+    <footer>
+
+
+
+
+    </footer>
+
+
+    <script src="./assets/script.js"></script>
+    
+  </body>
+
+  </html>

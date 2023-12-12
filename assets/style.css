@@ -1,0 +1,218 @@
+:root{
+    --color-buttons: rgb(133, 102, 133);
+}
+
+
+
+/* ////////////the general container//////////// */
+main{
+    display:flex;
+    flex-flow:row nowrap;
+    justify-content: center;
+    align-items: center;
+    position:relative;
+    top:5rem;
+}
+
+
+
+
+.container{
+    display:flex;
+    flex-flow: column nowrap;
+    width:75vh;
+    height:75vh;
+    margin: 0 0 0 0;
+    /* border: 3px solid black; */
+
+}
+
+/* //////////////////////////////////////////// */
+
+
+
+
+/* ////////////BASIC STRUCTURE////////////////// */
+
+/*  ///////////where I make the containers non-visible//////////  */
+
+/* .nonVis{
+    display: none;
+}
+
+#nonVis{
+    display: none;
+} */
+#to-score-link-nonVis{
+    display:none;
+}
+
+.container-start-nonVis{
+    display: none;
+}
+
+.container-quiz-nonVis{
+    display:none;
+}
+.score-nonVis{
+    display: none;
+}
+
+.container-highScores-nonVis{
+    display:none;
+}
+
+
+
+
+
+/* ///////////////score link///////////////////////// */
+#to-score-link{
+
+    display:flex;
+
+    flex-flow: row wrap;
+    height: 3rem;
+    justify-content: space-between;
+    padding: 0 2rem 0 0;
+}
+
+
+#to-score-link a{
+    /* border: 2px solid blue; */
+    justify-content: flex-start;
+    align-content: flex-start;
+}
+/* ///////////////////////////////////// */
+
+
+/* //////the start page////////////// */
+.container-start{
+    /* border: 3px solid green; */
+
+    display:flex;
+
+
+    flex-flow:column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    margin-top:10%;
+    width:90;
+}
+
+#quiz-description{
+    /* border: 3px solid pink; */
+    display:flex;
+    flex-flow:column nowrap;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+#quiz-description h1{
+    font-size: 3rem;
+}
+#quiz-description p{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    margin: -5% 20% 5% 25%;
+}
+
+#start-link{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+}
+
+#start-button{
+    display:flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+
+    background-color: var(--color-buttons);
+    color: white;
+    height: 2.5rem;
+    width:7rem;
+
+    border-radius: 1rem;
+}
+
+/* /////////////end start page//////////////// */
+
+
+/* /////////Quiz Questions/////////////////////// */
+.container-quiz{
+    display:flex;
+
+
+    /* border: 3px solid blue; */
+    width:100%;
+    flex-flow: column nowrap;
+    justify-content: center;
+    align-items: center;
+    margin: 10% 0 0 0;
+}
+
+#question{
+    display:flex;
+    position: relative;
+    bottom: 5rem;
+    font-size: 3em;
+    margin: 0 0 -1rem 0;
+}
+.answers{
+    /* border: 2px solid red; */
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    
+    color:white;
+    
+    width:100%;
+}
+.answers button{
+    color:white;
+    background-color: var(--color-buttons);
+    border-radius: .5rem;
+}
+.answers button{
+    margin:.5rem 0 .5rem 0;
+    height:3rem;
+    width:10rem;
+}
+/* /////////Quiz Questions END/////////////////////// */
+
+/* ////////////////use score/////////////////////// */
+
+.score{
+    display:flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+    width:100%;
+}
+
+
+/* ///////////High Scores////////////// */
+
+.container-highScores{
+    display:flex;
+
+    flex-flow: column nowrap;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+}
+
+
+/* ///////////score board END////////////// */
+
+
+/* ///////////BASIC STRUCTURE END////////////// */
+
