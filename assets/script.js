@@ -83,75 +83,75 @@ function startQuiz(){
 function updateQuestion(){
     containerQuiz.className = "container-quiz";
         if(questionNumber == 1){
-            questionTxt.textContent = "first question";
-            answer1Txt.textContent = "answer correct 1-1";
-            answer2Txt.textContent = "answer 2-1";
-            answer3Txt.textContent = "answer 3-1";
-            answer4Txt.textContent = "answer 4-1";
+            questionTxt.textContent = "What does HTML stand for?";
+            answer1Txt.textContent = "Hyper Text Markup Language";
+            answer2Txt.textContent = "Hyperlinks and Text Markup Language";
+            answer3Txt.textContent = "Home Tool Markup Language";
+            answer4Txt.textContent = "Hyper Tool Markup Langauge";
         }
     
         if(questionNumber == 2){
-            questionTxt.textContent = "second question";
-            answer1Txt.textContent = "answer 1-2";
-            answer2Txt.textContent = "answer 2-2";
-            answer3Txt.textContent = "answer correct 3-2";
-            answer4Txt.textContent = "answer 4-2";
+            questionTxt.textContent = "Which HTML element is used to define important text?";
+            answer1Txt.textContent = "<important>";
+            answer2Txt.textContent = "<b>";
+            answer3Txt.textContent = "<strong>";
+            answer4Txt.textContent = "<i>";
         }
         if(questionNumber == 3){
-            questionTxt.textContent = "third question";
-            answer1Txt.textContent = "answer 1-3";
-            answer2Txt.textContent = "answer correct2-3";
-            answer3Txt.textContent = "answer  3-3";
-            answer4Txt.textContent = "answer 4-3";
+            questionTxt.textContent = "How do you comment in a CSS file?";
+            answer1Txt.textContent = "// this is a comment";
+            answer2Txt.textContent = "/* this is a comment */";
+            answer3Txt.textContent = "<!-- this is a comment -->";
+            answer4Txt.textContent = "# this is a comment";
         }
         if(questionNumber == 4){
-            questionTxt.textContent = "fourth question";
-            answer1Txt.textContent = "answer 1-4";
-            answer2Txt.textContent = "answer 2-4";
-            answer3Txt.textContent = "answer  3-4";
-            answer4Txt.textContent = "answer correct4-4";
+            questionTxt.textContent = "How do you declare a JavaScript variable?";
+            answer1Txt.textContent = "v carName;";
+            answer2Txt.textContent = "variable carName;";
+            answer3Txt.textContent = "val carName;";
+            answer4Txt.textContent = "var carName;";
         }
         if(questionNumber == 5){
-            questionTxt.textContent = "fifth question";
-            answer1Txt.textContent = "answer 1-5";
-            answer2Txt.textContent = "answer 2-5";
-            answer3Txt.textContent = "answer correct 3-5";
-            answer4Txt.textContent = "answer 4-5";
+            questionTxt.textContent = "Which operator is used to assign a value to a variable in JavaScript?";
+            answer1Txt.textContent = "*";
+            answer2Txt.textContent = "-";
+            answer3Txt.textContent = "=";
+            answer4Txt.textContent = "+";
         }
         if(questionNumber == 6){
-            questionTxt.textContent = "sixth question";
-            answer1Txt.textContent = "answer 1-6";
-            answer2Txt.textContent = "answer 2-6";
-            answer3Txt.textContent = "answer correct 3-6";
-            answer4Txt.textContent = "answer 4-6";
+            questionTxt.textContent = "What does CSS stand for?";
+            answer1Txt.textContent = "Creative Style Sheets";
+            answer2Txt.textContent = "Colorful Style Sheets";
+            answer3Txt.textContent = "Cascading Style Sheets";
+            answer4Txt.textContent = "Computer Style Sheets";
         }
         if(questionNumber == 7){
-            questionTxt.textContent = "seventh question";
-            answer1Txt.textContent = "answer correct 1-7";
-            answer2Txt.textContent = "answer 2-7";
-            answer3Txt.textContent = "answer 3-7";
-            answer4Txt.textContent = "answer 4-7";
+            questionTxt.textContent = "Which HTML attribute is used to define inline styles?";
+            answer1Txt.textContent = "style";
+            answer2Txt.textContent = "font";
+            answer3Txt.textContent = "class";
+            answer4Txt.textContent = "styles";
         }
         if(questionNumber == 8){
-            questionTxt.textContent = "eighth question";
-            answer1Txt.textContent = "answer 1-8";
-            answer2Txt.textContent = "answer correct 2-8";
-            answer3Txt.textContent = "answer 3-8";
-            answer4Txt.textContent = "answer 4-8";
+            questionTxt.textContent = "Which is the correct CSS syntax?";
+            answer1Txt.textContent = "{body;color:black;}";
+            answer2Txt.textContent = "body {color: black;}";
+            answer3Txt.textContent = "{body:color=black;}";
+            answer4Txt.textContent = "body:color=black;";
         }
         if(questionNumber == 9){
-            questionTxt.textContent = "ninth question";
-            answer1Txt.textContent = "answer 1-9";
-            answer2Txt.textContent = "answer 2-9";
-            answer3Txt.textContent = "answer 3-9";
-            answer4Txt.textContent = "answer correct 4-9";
+            questionTxt.textContent = "How do you select an element with id “demo” in CSS?";
+            answer1Txt.textContent = ".demo";
+            answer2Txt.textContent = "demo";
+            answer3Txt.textContent = "*demo";
+            answer4Txt.textContent = "#demo";
         }
         if(questionNumber == 10){
-            questionTxt.textContent = "tenth question";
-            answer1Txt.textContent = "answer correct1-10";
-            answer2Txt.textContent = "answer 2-10";
-            answer3Txt.textContent = "answer 3-10";
-            answer4Txt.textContent = "answer 4-10";
+            questionTxt.textContent = "What is the correct way to link a JavaScript file to an HTML document?";
+            answer1Txt.textContent = "<script src='script.js'></script>";
+            answer2Txt.textContent = "<script href='script.js'></script>";
+            answer3Txt.textContent = "<link rel='script' src='script.js'>";
+            answer4Txt.textContent = "<link href='script.js' type='text/javascript'>";
         }
 
     }
