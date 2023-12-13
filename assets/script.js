@@ -48,11 +48,11 @@ var correct = 0;
 
 
 
-// function scoreBoardLinkClick(){
+function scoreBoardLinkClick(){
 
-//         scoreBoard();
+        scoreBoard();
 
-// }
+}
 function scoreBoardLink(){
     //click on the scoreboard anchor and it sends you to the scoreboard
     toScoreLink.removeEventListener("click", scoreBoard);
@@ -74,6 +74,10 @@ function timeReset(){
 //makes the start screen nonvisible and starts up the quiz
 function startQuiz(){
     containerStart.className = "container-start-nonVis";
+    // newScore ={ 
+    //     score: 0,
+    //     initials: ""
+    // };
     quiz();
     
 }
@@ -305,6 +309,8 @@ var initialsArray = [];
 var correctArray = [];
 var highScores= [];
 
+var newScore;
+
 function enterName(){
     //where the user sees the form to enter their name
     score.className = "score";
@@ -335,7 +341,7 @@ function saveScore(event){
         
         highScores = JSON.parse(window.localStorage.getItem("highScores")) ||[];
         console.log(highScores);
-        var newScore ={ 
+        newScore ={ 
             score: correct,
             initials: newInitals
         };
@@ -351,7 +357,7 @@ function saveScore(event){
 
 
 
-
+var clearScores = document.querySelector("#clear-scores");
 
 function scoreBoard(){
     //makes just the Score Board visible
@@ -361,6 +367,7 @@ function scoreBoard(){
     score.className = "score-nonVis";
     containerStart.className = "container-start-nonVis";
 
+    removeList();
 
     //get the scores to show up on the function
     highScores = JSON.parse(window.localStorage.getItem("highScores")) ||[];
@@ -369,24 +376,38 @@ function scoreBoard(){
         //makes a list element
         li = document.createElement('li');
         //sets the text of that list element to be the stored values 
-        li.textContent = highScores[i].score +" "+ highScores[i].initials;
+        li.textContent = "Your score was: "+highScores[i].score +" Name/Initials: "+ highScores[i].initials;
         //appends that list element to the ordered list
         ol.appendChild(li);
     }
 
     //resets the countdown
     timeReset();
-    
-    
+    clearScores.removeEventListener("click", cleanArrayAndStorage);
+    clearScores.addEventListener("click", cleanArrayAndStorage);
     toStartBut.removeEventListener("click", restart);
     //sends you back to the start of the quiz
     toStartBut.addEventListener("click", restart);
 }
+function cleanArrayAndStorage(){
+    clearLocalStorage();
+    removeList();
+}
 
+function clearLocalStorage(){
+    localStorage.clear();
+}
+function removeList(){
+    highScores = [];
+    
+    while(ol.firstChild){
+        correct = 0;
+        ol.removeChild(ol.firstChild);
+    }
 
+}
 
-
-function start(){
+function start(){   
     //when you click the start button, the start screen swaps to the quiz
 
     //this makes the anchor to the score board active
