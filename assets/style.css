@@ -114,6 +114,7 @@ main{
     align-items: center;
     justify-content: center;
     margin: -5% 20% 5% 25%;
+    font-size:1.25rem;
 }
 
 #start-link{
@@ -184,7 +185,7 @@ main{
 #to-start,
 #to-scoreBoard,
 #clear-scores{
-    font-size: 1rem;
+    font-size: 1.2rem;
 }
 
 
