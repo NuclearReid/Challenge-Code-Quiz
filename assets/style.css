@@ -175,19 +175,20 @@ main{
     
     width:100%;
 }
+
+#to-start,
+#clear-scores,
 .answers button{
     color:white;
     background-color: var(--color-buttons);
     border-radius: .5rem;
-}
-.answers button{
     margin:.5rem 0 .5rem 0;
     height:3rem;
     width:10rem;
 }
 /* /////////Quiz Questions END/////////////////////// */
 
-/* ////////////////use score/////////////////////// */
+/* ////////////////user score/////////////////////// */
 
 .score{
     display:flex;
@@ -198,7 +199,7 @@ main{
 }
 
 
-/* ///////////High Scores////////////// */
+/* ///////////Score Board ////////////// */
 
 .container-highScores{
     display:flex;
@@ -209,9 +210,12 @@ main{
 
     width: 100%;
 }
+#to-start{
+    background-color: var(--color-buttons);
+}
 
 
-/* ///////////score board END////////////// */
+/* ///////////Score Board END////////////// */
 
 
 /* ///////////BASIC STRUCTURE END////////////// */

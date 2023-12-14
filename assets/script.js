@@ -47,12 +47,14 @@ var correct = 0;
 
 
 
-
+//the function that'll send the user to the score board (it's the anchor in the top left corner)
 function scoreBoardLinkClick(){
 
         scoreBoard();
 
 }
+
+//the function that uses the scoreBoardLinkClick in the .eventLIstener
 function scoreBoardLink(){
     //click on the scoreboard anchor and it sends you to the scoreboard
     toScoreLink.removeEventListener("click", scoreBoard);
@@ -74,10 +76,7 @@ function timeReset(){
 //makes the start screen nonvisible and starts up the quiz
 function startQuiz(){
     containerStart.className = "container-start-nonVis";
-    // newScore ={ 
-    //     score: 0,
-    //     initials: ""
-    // };
+    
     quiz();
     
 }
@@ -161,7 +160,7 @@ function updateQuestion(){
     }
 
 
-    //all each of these 4 functions work the same, the only difference is which questions they're correct for
+//each of these next 4 functions essentially work the same, the only difference is which questions they're correct for
 //these are the functions that are used for the clicks/event listeners
 function answer1Click() {
     console.log("answer 1 clicked");
@@ -238,13 +237,25 @@ function answer1Click() {
   
   //the event listeners for the buttons.
   function quiz(){
+    //lets you see the scoreboard mid-quiz
     scoreBoardLink();
     //starts up the countdown
     countdown();
-    // Remove the previous event listeners (when they want to do the quiz again)
+    
+    //this boolean is here if the user clicks to see the scoreboard mid quiz, it's just another check to stop the countdown
+    //basically, without it, if the user was in the quiz, then clicked the scoreboard link, the countdown would keep going down and throw off the program
+    stopClock = false;
+
+    ////////////////////////////////////////////////////////////////////////////////
+    //Remove the previous event listeners (when they want to do the quiz again)
+
+    //i was having a bug where without these i would get the error i described below.... but i also removed them and code worked fine.
+        //I've got no idea what was happening but the code works with them so i'm keeping them.
+
     //if the eventListener is not removed it was happening as many times as the user did attempts
     //like on the second time around, the user would lose 20 sec for a wrong answer
     //3rd time, 30 sec for a wrong answer etc etc.
+
     answer1button.removeEventListener("click", answer1Click);
     answer2button.removeEventListener("click", answer2Click);
     answer3button.removeEventListener("click", answer3Click);
@@ -258,6 +269,7 @@ function answer1Click() {
     
     //refreshes the page to display the next question
     updateQuestion();
+    //console lot the question number and where the correct counter is at
     console.log(correct + " correct counter");
     console.log(questionNumber + " question number");
   }
@@ -267,30 +279,34 @@ function answer1Click() {
 function countdown(){
     //sets the timer
     var timerInterval = setInterval(function() {
+        //this is defaulted to 50
         secondsLeft--;
 
         //displays the clock
         timerEl.textContent= "Time: "+ secondsLeft;
-        
+        //stops the countdown if the user clicks on the ScoreBoard link
+        if(stopClock) {
+            secondsLeft = 0;
+            timerEl.textContent= "Time: "+ secondsLeft;
+            // Stops execution of action at set interval
+            clearInterval(timerInterval);
+            highScores();
+        }
         //when the timer hits 0 or goes below 0 (ie they get a wrong question with 3 sec left) sends the user to enter their name
-        if(secondsLeft === 0 || secondsLeft < 0 ) {
+        if(secondsLeft === 0 || secondsLeft < 0) {
             secondsLeft = 0;
             timerEl.textContent= "Time: "+ secondsLeft;
             // Stops execution of action at set interval
             clearInterval(timerInterval);
             enterName();
         }
+
       }, 1000);
 }
 
 
 
 //scoreboard variables -->these are down here so i can see them more easily while working at this part
-
-//the highscore list
-// var listLink = document.querySelector("#list-link");
-
-
 
 // saving/displaying the person's name
 var initials = document.querySelector("#initials");
@@ -310,7 +326,7 @@ var correctArray = [];
 var highScores= [];
 
 var newScore;
-
+//where the person enters their name
 function enterName(){
     //where the user sees the form to enter their name
     score.className = "score";
@@ -323,33 +339,29 @@ function enterName(){
      toScoreBoardBut.addEventListener("click", saveScore);
 }
 
+//saves the name/score to the local storage and puts it in newScore object/array
 function saveScore(event){
+    //gets rid of the white space on both ends of the string
     var newInitals = initials.value.trim();
-    //I still need to add the user score to their initials....asd;lfjas;ldfj;alkd
+    //stops the form from refreshing
     event.preventDefault();
 
-  
-    //puts each letter entered into it's own spot in the array
-    //I don't want each letter to have it's own spot in the array
-    if(newInitals!==""){
-          //with out this, the user would just be sent straight to the start screen
-        
-        //stores the initials the user entered in the local storage
-        // window.localStorage.setItem("highScores", JSON.stringify(initials));
-        
-        //gets the initials from the local storage
-        
+    //makes sure a value is only stored if the user enters something in to the form
+    if(newInitals!==""){      
+        //gets the name and score of the previous entries from the local storage
         highScores = JSON.parse(window.localStorage.getItem("highScores")) ||[];
+        //lets me see the array in the log
         console.log(highScores);
+        //the object that has the info for the person's name and score. these items are what will be used for the array that's appended to the list
         newScore ={ 
             score: correct,
             initials: newInitals
         };
+        //adds the new name/score to the highscore array
         highScores.push(newScore);
-
+        //stores the updated highscore array to the local storage
         window.localStorage.setItem("highScores", JSON.stringify(highScores));
     }
-    // window.location.reload();
     
     //goes to the scoreboard
     scoreBoard();
@@ -359,7 +371,16 @@ function saveScore(event){
 
 var clearScores = document.querySelector("#clear-scores");
 
+//this boolean is used to stop the countdown if the user clicks on the highscore anchor tag
+//take a look in quiz(), countdown(), or scoreBoard() for other explinations how/why
+var stopClock = false;
+
 function scoreBoard(){
+    
+    //basically another check to stop the countdown. when true, countdown is ended in a way like the timer hit 0
+    stopClock = true;
+    
+    
     //makes just the Score Board visible
     toScoreLink.className = "to-score-link-nonVis";
     containerQuiz.className = "container-quiz-nonVis";
@@ -367,49 +388,60 @@ function scoreBoard(){
     score.className = "score-nonVis";
     containerStart.className = "container-start-nonVis";
 
+    //this clears the appeneded list items. Basically, if it wasn't here, the appened list items from the previous run through would still be displayed
+    //and the newly updated highscore array would be added to the end of the list
+    //it's a bit cheap but it works
     removeList();
 
-    //get the scores to show up on the function
+    //get the highScores array from the local storage
     highScores = JSON.parse(window.localStorage.getItem("highScores")) ||[];
-    //
+    //creates a list item for each element of the highScores array
     for(var i = 0; i<highScores.length;i++){
         //makes a list element
         li = document.createElement('li');
-        //sets the text of that list element to be the stored values 
-        li.textContent = "Your score was: "+highScores[i].score +" Name/Initials: "+ highScores[i].initials;
+        //sets the text of that list element to be the stored values (If I got all questions right, will read as 'Reid, you scored: 10') 
+        li.textContent = highScores[i].initials + ", you scored: "+highScores[i].score ;
         //appends that list element to the ordered list
         ol.appendChild(li);
     }
 
     //resets the countdown
     timeReset();
+    //the button to clear the array/list items
     clearScores.removeEventListener("click", cleanArrayAndStorage);
     clearScores.addEventListener("click", cleanArrayAndStorage);
-    toStartBut.removeEventListener("click", restart);
+
     //sends you back to the start of the quiz
+    toStartBut.removeEventListener("click", restart);
     toStartBut.addEventListener("click", restart);
 }
+
+//bundles the remove list and clearlocalstorage together (used for the button on the score board screen)
 function cleanArrayAndStorage(){
     clearLocalStorage();
     removeList();
 }
-
+//clears the local storage
 function clearLocalStorage(){
     localStorage.clear();
 }
+
+//clears the appended children that are put on the list (the names/high scores)
 function removeList(){
+    //clears the highSCores array
     highScores = [];
     
+    //while there is a first child element
     while(ol.firstChild){
+        //reset correct to 0
         correct = 0;
+        //keeps removing the child elementes till there arn't anymore ie clears the list
         ol.removeChild(ol.firstChild);
     }
 
 }
-
+//start screen for the quiz
 function start(){   
-    //when you click the start button, the start screen swaps to the quiz
-
     //this makes the anchor to the score board active
     scoreBoardLink();
     //resets the time
@@ -429,7 +461,7 @@ function start(){
 }
 
 function restart(){
-    //clears the high score screen
+    //makes the highScore screen non-visible
     containerHighScores.className = "container-highScores-nonVis";
     console.log("clicked 'start again'");
     //sends the user back to the start
