@@ -1,4 +1,5 @@
 :root{
+    /* the color of the buttons */
     --color-buttons: rgb(133, 102, 133);
 }
 
@@ -23,7 +24,7 @@ main{
     width:75vh;
     height:75vh;
     margin: 0 0 0 0;
-    /* border: 3px solid black; */
+    padding: 2rem;
 
 }
 
@@ -36,13 +37,7 @@ main{
 
 /*  ///////////where I make the containers non-visible//////////  */
 
-/* .nonVis{
-    display: none;
-}
 
-#nonVis{
-    display: none;
-} */
 #to-score-link-nonVis{
     display:none;
 }
@@ -93,10 +88,8 @@ main{
 
 /* //////the start page////////////// */
 .container-start{
-    /* border: 3px solid green; */
 
     display:flex;
-
 
     flex-flow:column nowrap;
     align-items: center;
@@ -107,7 +100,6 @@ main{
 }
 
 #quiz-description{
-    /* border: 3px solid pink; */
     display:flex;
     flex-flow:column nowrap;
     align-items: center;
@@ -151,9 +143,6 @@ main{
 /* /////////Quiz Questions/////////////////////// */
 .container-quiz{
     display:flex;
-
-
-    /* border: 3px solid blue; */
     width:100%;
     flex-flow: column nowrap;
     justify-content: center;
@@ -169,7 +158,6 @@ main{
     margin: 0 0 -1rem 0;
 }
 .answers{
-    /* border: 2px solid red; */
     display: flex;
     flex-flow: column nowrap;
     justify-content: flex-start;
@@ -190,7 +178,16 @@ main{
     margin:.5rem 0 .5rem 0;
     height:3rem;
     width:10rem;
+    
 }
+#start-button,
+#to-start,
+#to-scoreBoard,
+#clear-scores{
+    font-size: 1rem;
+}
+
+
 /* /////////Quiz Questions END/////////////////////// */
 
 /* ////////////////user score/////////////////////// */
