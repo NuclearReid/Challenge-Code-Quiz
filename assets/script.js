@@ -87,7 +87,7 @@ function updateQuestion(){
     containerQuiz.className = "container-quiz";
         if(questionNumber == 1){
             questionTxt.textContent = "What does HTML stand for?";
-            answer1Txt.textContent = "Hyper Text Markup Language";
+            answer1Txt.textContent = "Hypertext Markup Language";
             answer2Txt.textContent = "Hyperlinks and Text Markup Language";
             answer3Txt.textContent = "Home Tool Markup Language";
             answer4Txt.textContent = "Hyper Tool Markup Langauge";
