@@ -12,11 +12,21 @@ At any time the user can go to the score screen
 
 The designe is very simple and easy to use. I asked my coworker to help me try and break it or find a bug but we couldn't find one. Not to say there arn't any, we just couldn't find one
 
-I used Microsoft Co-Pilot/GPT-4 a lot for helping me with debugging, syntax errors, and other generall questions.
+ used Microsoft Co-Pilot/GPT-4 a lot for helping me with debugging, errors, and other generall questions.
 
 Tom and Prateek also gave me assistance in getting my Score screen and local storage to work.
 
 Lastly, my first commit had a lot of code included in it becasue I did most the coding at work and was unable to push to github over the work wifi
 
+The start of the Quiz
+
+![start of the quiz](./assets/start%20screen.png)
+
 The first question of my coding quiz
 ![A screenshot of the quiz](./assets/coding%20quiz%20screen%20shot.png)
+
+Enter your name
+![enter your name](./assets/enter%20name.png)
+
+Score Screen
+![score screen](./assets/score%20screen.png)
