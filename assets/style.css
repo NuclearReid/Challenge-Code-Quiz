@@ -132,8 +132,8 @@ main{
 
     background-color: var(--color-buttons);
     color: white;
-    height: 2.5rem;
-    width:7rem;
+    height: 5rem;
+    width:9rem;
 
     border-radius: 1rem;
 }
@@ -177,15 +177,16 @@ main{
     background-color: var(--color-buttons);
     border-radius: .5rem;
     margin:.5rem 0 .5rem 0;
-    height:3rem;
-    width:10rem;
+    height:5rem;
+    width:15rem;
+    font-size: 2rem;
     
 }
 #start-button,
 #to-start,
 #to-scoreBoard,
 #clear-scores{
-    font-size: 1.2rem;
+    font-size: 2rem;
 }
 
 
