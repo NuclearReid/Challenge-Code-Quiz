@@ -74,7 +74,7 @@ main{
     flex-flow: row wrap;
     height: 3rem;
     justify-content: space-between;
-    padding: 0 2rem 0 0;
+    padding: 0 2rem 2rem 0;
 }
 
 
@@ -82,6 +82,11 @@ main{
     /* border: 2px solid blue; */
     justify-content: flex-start;
     align-content: flex-start;
+    font-size: 1.5rem;
+    
+}
+#to-score-link p{
+    font-size: 1.5rem;
 }
 /* ///////////////////////////////////// */
 
@@ -169,7 +174,6 @@ main{
     flex-flow: column nowrap;
     justify-content: flex-start;
     align-items: flex-start;
-
     
     color:white;
     
@@ -177,6 +181,7 @@ main{
 }
 
 #to-start,
+#to-scoreBoard,
 #clear-scores,
 .answers button{
     color:white;
@@ -189,13 +194,18 @@ main{
 /* /////////Quiz Questions END/////////////////////// */
 
 /* ////////////////user score/////////////////////// */
-
+#yourScore h3{
+    font-size: 3rem;
+}
 .score{
     display:flex;
     flex-flow: column nowrap;
     align-items: center;
     justify-content: center;
     width:100%;
+}
+.score input{
+    font-size: 2rem;
 }
 
 
@@ -210,6 +220,14 @@ main{
 
     width: 100%;
 }
+.container-highScores h3{
+    font-size: 3rem;
+    margin: 0 0 0 0;
+}
+
+.container-highScores li{
+    font-size: 2rem;
+}
 #to-start{
     background-color: var(--color-buttons);
 }
@@ -217,6 +235,10 @@ main{
 
 /* ///////////Score Board END////////////// */
 
+/* This had to be moved away from the other '-nonVis' items because it was being overridden if it was too high up */
+#clear-scores-nonVis{
+    display: none;
+}
 
 /* ///////////BASIC STRUCTURE END////////////// */
 

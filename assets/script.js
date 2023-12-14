@@ -370,7 +370,6 @@ function saveScore(event){
 
 
 var clearScores = document.querySelector("#clear-scores");
-
 //this boolean is used to stop the countdown if the user clicks on the highscore anchor tag
 //take a look in quiz(), countdown(), or scoreBoard() for other explinations how/why
 var stopClock = false;
@@ -379,10 +378,18 @@ function scoreBoard(){
     
     //basically another check to stop the countdown. when true, countdown is ended in a way like the timer hit 0
     stopClock = true;
+
+    //if there arn't any scores listed the 'clear scores' button won't show
+    if(highScores.length != 0){
+        clearScores.id ="clear-scores";
+    }
+    if(highScores.length == 0){
+        clearScores.id = "clear-scores-nonVis";
+    }
     
     
     //makes just the Score Board visible
-    toScoreLink.className = "to-score-link-nonVis";
+    toScoreLink.id = "to-score-link-nonVis";
     containerQuiz.className = "container-quiz-nonVis";
     containerHighScores.className="container-highScores";
     score.className = "score-nonVis";
@@ -405,6 +412,8 @@ function scoreBoard(){
         ol.appendChild(li);
     }
 
+    
+
     //resets the countdown
     timeReset();
     //the button to clear the array/list items
@@ -416,10 +425,13 @@ function scoreBoard(){
     toStartBut.addEventListener("click", restart);
 }
 
-//bundles the remove list and clearlocalstorage together (used for the button on the score board screen)
+//bundles the remove list and clearlocalstorage together (used for the button on the score board screen) then it refreshes the score board page
 function cleanArrayAndStorage(){
+    
     clearLocalStorage();
     removeList();
+    scoreBoard();
+
 }
 //clears the local storage
 function clearLocalStorage(){
